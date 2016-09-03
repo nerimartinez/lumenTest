@@ -1,0 +1,9 @@
+C:\Users\neron\Desktop\Services\bin\Debug\Services.dll.config
+C:\Users\neron\Desktop\Services\bin\Debug\Services.dll
+C:\Users\neron\Desktop\Services\bin\Debug\Services.pdb
+C:\Users\neron\Desktop\Services\bin\Debug\EntityFramework.dll
+C:\Users\neron\Desktop\Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\neron\Desktop\Services\bin\Debug\EntityFramework.xml
+C:\Users\neron\Desktop\Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\neron\Desktop\Services\obj\Debug\Services.dll
+C:\Users\neron\Desktop\Services\obj\Debug\Services.pdb

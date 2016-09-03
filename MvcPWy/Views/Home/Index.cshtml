@@ -1,0 +1,254 @@
+﻿@{
+    ViewBag.Title = "Lumen 21";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="new" >Create new Device <span class="glyphicon glyphicon-plus" /></div>
+    <table id="devicesTable" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NickName</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Ip Address</th>
+                <th>Policy</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>NickName</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Ip Address</th>
+                <th>Policy</th>
+                <th>Actions</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+</div>
+
+<div class="modal fade" id="deviceInformationModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Device Information</h4>
+            </div>
+            <div class="modal-body">
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#info-tab" data-toggle="tab">General <i class="fa"></i></a></li>
+                    <li><a href="#address-tab" data-toggle="tab">Details <i class="fa"></i></a></li>
+                    <li><a href="#login-tab" data-toggle="tab">Login Information <i class="fa"></i></a></li>
+                </ul>
+
+                <form id="deviceForm" class="form-horizontal">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="info-tab">
+                            <input class="form-control" type="hidden" id="Id" name="Id" />
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">NickName<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" id="NickName" name="NickName" data-validation="required" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Manufacturer<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="manufacturersSelect"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Model<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="modelsSelect"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Ip Type<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input type="radio" id ="dynamicRadio" name="IpType" value="0" checked="checked">Dynamic<br>
+                                    <input type="radio" id ="staticRadio" name="IpType" value="1">Static<br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Ip Address<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="IpAddress" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Location<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="locationsSelect"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Zip Code<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input maxlength="5" class="form-control" type="number" name="ZipCode" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Policy<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="policiesSelect"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="address-tab">
+                            <h2>NIC 1 (Management)</h2>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">IP Address<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="NIC1IpAddress" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Subnet Mask<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="NIC1SubNetMask" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Default Gateway<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="NIC1DefaultGateway" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">NAT (External) IP Address<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="NIC1NATIpAddress" />
+                                </div>
+                            </div>
+
+                            <h2>NIC 2 (Internal)</h2>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">IP Address<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="NIC2IpAddress" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Subnet Mask<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="NIC2SubNetMask" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Default Gateway<span class="requiredField">*</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="NIC2DefaultGateway" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="login-tab">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">IP Address</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="LoginIpAddress" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Username</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="LoginUserName" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Password</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="password" name="LoginPassword" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Enable Password</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="password" name="LoginEnablePassword" />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Save" id="submitDevice" class="btn btn-primary" />
+                        <span id="completeRequired" style="display:none" class="requiredField">All the required fields must be filled!</span>
+                    </div>                    
+                </form>
+                
+            </div>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div>
+    <form id="deviceForm" class="form-horizontal">
+        <input type="submit" value="Submit" id="submitToLumen" class="btn btn-primary" />
+    </form>
+</div>
+
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Remove Device</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the selected device?
+            </div>
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmDelete">Yes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="noDeviceModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Warning!</h4>
+            </div>
+            <div class="modal-body">
+                You must enter at least one device to submit!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+ 
+
+

@@ -1,0 +1,16 @@
+﻿#deviceForm{
+        margin-top: 15px;
+    }
+#new {
+            float: right;
+    }
+.glyphicon.glyphicon-plus {
+    font-size: 25px;
+}
+    .error, .requiredField {
+        color: red;
+    }
+
+#submitToLumen {
+    float: right;
+}

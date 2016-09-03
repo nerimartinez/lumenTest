@@ -1,0 +1,142 @@
+﻿@model MvcPWy.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<style>
+ 
+.modal-body{
+  height: 250px;
+  overflow-y: auto;
+}
+</style>
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    <div style="float:left;" class="col-md-6">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.FirstName, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.LastName, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.CompanyName, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div><span>FREE 30-DAY TRIAL</span></div>
+        <div><span>You will sign up for a free, no obligation trial. No credit card is needed, and you are given 30-days to experience the full commercial version.</span></div>
+        <div><span>This gives you plenty of time to understand the value it brings.</span></div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                @Html.CheckBoxFor(m => m.TermsAndConditions)
+                I agree with the <a><span id="tos">Terms of service</span></a>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Terms of service</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus laoreet nisi eu tempor. Etiam at neque in nulla molestie vulputate in eu odio. Sed semper urna a turpis sodales dictum. Aliquam viverra ac ipsum aliquam cursus. Praesent quis metus ut nulla feugiat aliquam. Integer feugiat tempor lectus sit amet pretium. Nullam consectetur tellus vitae turpis suscipit, non venenatis lectus interdum. Aliquam semper vitae velit nec posuere. Vestibulum interdum commodo augue, sit amet porttitor risus suscipit ut. Quisque id mattis orci, eu sagittis est. In hac habitasse platea dictumst. In et ligula facilisis libero porttitor tincidunt vitae ut lorem. Phasellus varius semper laoreet. Curabitur sapien nunc, tincidunt sit amet tincidunt sed, tincidunt ut urna. Mauris pharetra odio ut volutpat ullamcorper.
+                </p>
+                <p>
+                    Donec interdum rutrum finibus. Fusce et sagittis sem, quis consectetur enim. Nullam lacinia ante nec consequat sodales. Proin vulputate leo libero, quis ullamcorper tortor condimentum vel. Aenean neque turpis, sodales sit amet mi ac, placerat aliquet turpis. Integer vel pulvinar orci. Quisque cursus accumsan luctus. Nunc tempor lectus non nunc gravida, at ultrices erat accumsan.
+                </p>
+                <p>
+                    Vestibulum ac consequat diam. Sed malesuada libero at vulputate euismod. Suspendisse posuere dictum lacus ut sagittis. Suspendisse metus elit, rutrum at fringilla condimentum, aliquam eget orci. Praesent ut lacus finibus, lacinia est vitae, egestas neque. Proin eget accumsan augue. Sed venenatis imperdiet faucibus. Donec pharetra, nisl nec aliquam eleifend, urna eros hendrerit odio, eu facilisis urna lectus quis nunc. Phasellus eu mauris risus. Cras malesuada elit id nulla mollis, id imperdiet purus eleifend. Sed bibendum varius lacus non imperdiet. Donec ut quam sit amet ante dapibus lacinia ut ac arcu. Fusce consequat quam neque, eu posuere erat suscipit sed. Aliquam at sodales ante. In dignissim, tellus non iaculis congue, ante velit pharetra leo, eget posuere dolor velit ac nunc. Duis venenatis, orci et ultricies sodales, mi mauris porttitor urna, vitae auctor ex neque quis orci.
+                </p>
+                <p>
+                    Nullam blandit urna id justo iaculis suscipit in eu erat. Aenean ex nunc, mattis eget nibh vitae, vestibulum volutpat libero. Phasellus in nisl quis nunc efficitur pulvinar. Vivamus a euismod erat, quis semper magna. Integer rhoncus felis quis quam accumsan, eu fermentum eros convallis. Aenean interdum, quam sit amet placerat pellentesque, lectus augue facilisis lacus, a dictum purus lorem at odio. Phasellus ac molestie nisi.
+                </p>
+                <p>
+                    Nullam ut sapien ipsum. Cras magna urna, ullamcorper ac mauris quis, vulputate porttitor urna. Aenean et magna at ex scelerisque condimentum in in est. Nam in feugiat nibh, sed varius massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mauris enim, tincidunt non lacinia quis, lobortis sit amet ante. Aliquam lobortis purus orci, ultricies molestie velit gravida vitae. Integer malesuada lorem urna, a faucibus mauris cursus blandit. Maecenas venenatis ipsum quis enim gravida lobortis. Nulla quis faucibus lacus, in ultricies diam. Etiam et sodales eros. Suspendisse eu finibus nibh, aliquet fringilla urna.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // extend jquery range validator to work for required checkboxes
+            var defaultRangeValidator = $.validator.methods.range;
+            $.validator.methods.range = function (value, element, param) {
+                if (element.type === 'checkbox') {
+                    // if it's a checkbox return true if it is checked
+                    return element.checked;
+                } else {
+                    // otherwise run the default validation function
+                    return defaultRangeValidator.call(this, value, element, param);
+                }
+            }
+
+            $('#tos').on('click', function (ev) {
+                $('#myModal').modal('show')                
+            });
+        });
+    </script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
